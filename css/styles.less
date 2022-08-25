@@ -1,0 +1,251 @@
+@import '/node_modules/@fontsource/eb-garamond';
+
+@import 'variables.less';
+@import 'ipa.less';
+
+.small-caps {
+    font-feature-settings: 'smcp', 'c2sc', 'onum';
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
+}
+
+.lining-figures {
+    font-feature-settings: 'lnum';
+    font-variant-numeric: lining-nums;
+}
+
+.sans,
+div.table-wrapper {
+    font-family: @sans-family;
+    letter-spacing: default;
+}
+
+code,
+pre>code {
+    font-family: @mono-family;
+    line-height: default;
+}
+
+.sans>code {
+    font-size: inherit;
+}
+
+.tufte-width() {
+    width: 75%;
+    max-width: 1400px;
+
+    @media (max-width: 760px) {
+        & {
+            width: 84%;
+            padding-right: 0;
+        }
+    }
+}
+
+// Limit maximum width to combined width of main and side columns.
+.fullwidth,
+h1,
+p.subtitle,
+h2,
+h3 {
+    max-width: 88.125%;
+}
+
+h1,
+p.subtitle {
+    font-family: @title-family;
+}
+
+h2,
+h3 {
+    font-family: @heading-family;
+}
+
+body,
+.numeral,
+.sidenote-number:after,
+.sidenote:before {
+    .default-font-family();
+}
+
+body {
+    font-feature-settings: 'onum';
+    font-variant-numeric: oldstyle-nums;
+    hyphens: auto;
+    hanging-punctuation: first force-end last;
+
+    color: @foreground-color;
+    background-color: @background-color;
+}
+
+@para-indent: @body-size * 1.5;
+
+p {
+    text-indent: 0;
+    margin-top: 0; // tufte: 1.4rem
+    margin-bottom: 0; // tufte: 1.4rem
+    text-align: justify;
+
+    // First-line indents for all paragraphs except the first.
+    &+& {
+        text-indent: @para-indent;
+    }
+}
+
+.sidenote,
+label {
+    text-indent: 0;
+}
+
+hr {
+    border-top: @rule;
+}
+
+dd,
+li {
+    text-align: justify;
+}
+
+// Equal spacing above and below figures.
+figure {
+    margin: 3em 0 3em 0;
+}
+
+// Align figure captions in the margin.
+figcaption.marginnote {
+    margin-top: 0; // tufte: 0.3rem
+    max-width: 100%;
+}
+
+// Do not indent images in the margins.
+span.marginnote>img {
+    display: block;
+}
+
+// Left-align fullwidth figure captions.
+figure figcaption {
+    display: inline;
+    float: none;
+    margin-left: 0;
+}
+
+// Links in small caps.
+a {
+    .small-caps;
+
+    // Highlight in red on hover.
+    transition-property: color;
+    transition-duration: @link-transition-time;
+
+    &:hover {
+        color: @link-highlight-color;
+    }
+
+    &:link {
+        // Remove tufte dark mode shadow effect.
+        text-shadow: none;
+
+        // Remove tufte underlining for internal links.
+        &:not([href*='//']) {
+            .no-tufte-underline();
+        }
+    }
+}
+
+// Description lists.
+dt {
+    // Term and definition on same line.
+    float: left;
+    clear: left;
+    width: @para-indent * 4;
+    font-weight: 600;
+}
+
+dd {
+    margin-left: @para-indent * 4;
+    padding-left: @para-indent;
+
+    &:not(:first-child) {
+        margin-top: 0.25rem;
+    }
+}
+
+// Tables
+table {
+    display: table;
+    text-align: left;
+    border-spacing: 0 2.16pt;
+
+    thead tr:first-child>* {
+        border-top: @toprule;
+    }
+
+    border-bottom: @bottomrule;
+
+    th,
+    td {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    th[scope='col'] {
+        border-collapse: collapse;
+        border-bottom: @midrule;
+    }
+
+    th[scope='row'] {
+        font-weight: normal;
+    }
+}
+
+// Navigation box.
+nav.navbox {
+    .tufte-width();
+
+    display: flex;
+    flex-wrap: nowrap;
+    position: fixed;
+    bottom: 0;
+    height: 3.5rem;
+
+    background-color: @background-color;
+    border-top: @rule;
+
+    &>div {
+        height: 100%;
+
+        &:last-child {
+            text-align: right;
+        }
+
+        &:first-child,
+        &:last-child {
+            width: 50%;
+            flex-grow: 4;
+        }
+
+        &:nth-child(n + 2):nth-last-child(n + 2) {
+            flex-grow: 1;
+            border-left: @lightrule;
+            border-right: @lightrule;
+
+            & a {
+                padding-left: @navbox-padding;
+                padding-right: @navbox-padding;
+            }
+        }
+
+        & a {
+            display: block;
+            padding: 0.5em @navbox-padding 1em @navbox-padding;
+            height: 100%;
+
+            transition-property: background-color;
+            transition-duration: @link-transition-time;
+
+            &:hover {
+                background-color: @boxlink-highlight-color;
+            }
+        }
+    }
+}

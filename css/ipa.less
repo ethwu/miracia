@@ -1,0 +1,31 @@
+.ipa {
+    .default-font-family();
+
+    font-feature-settings: 'ss06', 'cv27' 1;
+}
+
+.wide.ghost {
+    &::before,
+    &::after {
+        content: '/';
+    }
+}
+
+.narrow.ghost {
+    &::before {
+        content: '[';
+    }
+
+    &::after {
+        content: ']';
+    }
+}
+
+.orth.ghost {
+    &::before {
+        content: '⟨';
+    }
+    &::after {
+        content: '⟩';
+    }
+}
