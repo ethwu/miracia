@@ -1,3 +1,5 @@
+@import '/node_modules/@fontsource/playfair-display';
+
 @import 'device.less';
 
 .font-face-support-ipa() {
@@ -84,8 +86,8 @@
 @serif-family: 'Gentium Book Plus', @bembo, @serif-fallback;
 @mono-family: @source-code, @mono-fallback;
 
-@title-family: @bembo;
-@heading-family: @bembo;
+@title-family: 'Playfair Display', @bembo, @serif-fallback;
+@heading-family: 'Playfair Display', @bembo, @serif-fallback;
 
 // Default text size.
 @text-size: 13.5pt;
@@ -114,6 +116,10 @@ html {
 .lining-figures {
     font-feature-settings: 'lnum';
     font-variant-numeric: lining-nums;
+}
+
+h1, h2, h3 {
+    font-style: normal;
 }
 
 .sans,

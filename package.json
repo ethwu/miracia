@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource/gentium-book-plus": "^4.5.0",
+    "@fontsource/playfair-display": "^4.5.11",
     "@parcel/core": "^2.7.0",
     "parcel": "^2.7.0",
     "tufte-css": "^1.8.0"

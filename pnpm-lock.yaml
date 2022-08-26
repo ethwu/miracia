@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@fontsource/gentium-book-plus': ^4.5.0
+  '@fontsource/playfair-display': ^4.5.11
   '@parcel/core': ^2.7.0
   '@parcel/transformer-less': ^2.7.0
   http-server: ^14.0.0
@@ -11,6 +12,7 @@ specifiers:
 
 dependencies:
   '@fontsource/gentium-book-plus': 4.5.0
+  '@fontsource/playfair-display': 4.5.11
   '@parcel/core': 2.7.0
   parcel: 2.7.0
   tufte-css: 1.8.0
@@ -45,6 +47,10 @@ packages:
 
   /@fontsource/gentium-book-plus/4.5.0:
     resolution: {integrity: sha512-wX2exh/ShGwZS/NPpxRrF3SaT69X3Q9wQSw0MmptIHoGJ9FdrxUTzp6Hk1+oNoTuz7UR+M84peMtxViIvfzYKQ==}
+    dev: false
+
+  /@fontsource/playfair-display/4.5.11:
+    resolution: {integrity: sha512-U9mhWeTBKmxebeaNxZT/38Wux1AA3eXOqsngdzuk2uH/uyykpS6YX11RvNCk4Pg/1IL6LAqgZh7JWS7TVFAdnA==}
     dev: false
 
   /@jridgewell/gen-mapping/0.3.2:

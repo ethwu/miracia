@@ -19,7 +19,6 @@
 
             ◊when/splice[page-children]{
                 <nav class="directory">
-                    <header><h2>Directory</h2></header>
                     <ul>
                         ◊(cond [page-children => (lambda (children)
                                                           (->html (map dirlink

@@ -44,16 +44,16 @@ racket_dev_deps := 'fmt'
 # Build the project by default.
 default: build-dev
 
-# Build the project.
-build parcel_flags='': _build-pollen (_build-parcel parcel_flags)
+alias build := build-dev
 # Run a development build of the project.
-build-dev: (build '--no-optimize')
+build-dev: (_build-pollen '--no-optimize')
 # Run a production build of the project.
-build-prod: (build '')
+build-prod: (_build-pollen-rkt '')
 
+# Rebuild pollen Racket files.
+_build-pollen-rkt parcel_flags='': clean && (_build-pollen parcel_flags)
 # Build pollen sources.
-_build-pollen:
-    just clean
+_build-pollen parcel_flags='': && (_build-parcel parcel_flags)
     raco pollen render pm
 # Build parcel sources.
 _build-parcel parcel_flags='':
@@ -65,8 +65,9 @@ _build-parcel parcel_flags='':
 
 
 # Watch for changes to rebuild the project.
-watch: build
-    watchexec --clear --exts p,pm,ptree just _build-pollen & \
+watch:
+    watchexec --clear --exts rkt just _build-pollen-rkt & \
+        watchexec --clear --exts p,pm,ptree just _build-pollen & \
         watchexec --clear --exts html,less,mjs,p,pm,ptree just _build-parcel
 
 # Serve the project.
