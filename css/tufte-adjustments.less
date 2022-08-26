@@ -1,0 +1,28 @@
+
+// Mixin for disabling the tufte underlining.
+.no-tufte-underline() {
+    background: unset;
+    text-shadow: unset;
+}
+
+
+.tufte-width() {
+    width: 75%;
+    max-width: 1400px;
+
+    @media (max-width: 760px) {
+        & {
+            width: 100%;
+            padding-right: 0;
+        }
+    }
+}
+
+// Limit maximum width to combined width of main and side columns.
+.fullwidth,
+h1,
+p.subtitle,
+h2,
+h3 {
+    max-width: 88.125%;
+}

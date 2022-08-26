@@ -1,0 +1,16 @@
+
+// Color to use as the main background.
+@background-color: #fffff8;
+@foreground-color: #111517;
+@dark-foreground-color: #DCD6CC;
+@dark-background-color: #111517;
+
+// Default foreground background colors.
+.colors() {
+    color: @foreground-color;
+    background-color: @background-color;
+    @media (prefers-color-scheme: dark) {
+        color: @dark-foreground-color;
+        background-color: @dark-background-color;
+    }
+}

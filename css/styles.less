@@ -1,55 +1,9 @@
-@import '/node_modules/@fontsource/eb-garamond';
-
+@import 'colors.less';
+@import 'fonts.less';
+@import 'tufte-adjustments.less';
 @import 'variables.less';
+
 @import 'ipa.less';
-
-.small-caps {
-    font-feature-settings: 'smcp', 'c2sc', 'onum';
-    font-variant-caps: all-small-caps;
-    font-variant-numeric: oldstyle-nums;
-}
-
-.lining-figures {
-    font-feature-settings: 'lnum';
-    font-variant-numeric: lining-nums;
-}
-
-.sans,
-div.table-wrapper {
-    font-family: @sans-family;
-    letter-spacing: default;
-}
-
-code,
-pre>code {
-    font-family: @mono-family;
-    line-height: default;
-}
-
-.sans>code {
-    font-size: inherit;
-}
-
-.tufte-width() {
-    width: 75%;
-    max-width: 1400px;
-
-    @media (max-width: 760px) {
-        & {
-            width: 84%;
-            padding-right: 0;
-        }
-    }
-}
-
-// Limit maximum width to combined width of main and side columns.
-.fullwidth,
-h1,
-p.subtitle,
-h2,
-h3 {
-    max-width: 88.125%;
-}
 
 h1,
 p.subtitle {
@@ -68,14 +22,16 @@ body,
     .default-font-family();
 }
 
+
 body {
+    margin: 0;
+
     font-feature-settings: 'onum';
     font-variant-numeric: oldstyle-nums;
     hyphens: auto;
     hanging-punctuation: first force-end last;
 
-    color: @foreground-color;
-    background-color: @background-color;
+    .colors();
 }
 
 @para-indent: @body-size * 1.5;
@@ -133,13 +89,16 @@ figure figcaption {
 a {
     .small-caps;
 
-    // Highlight in red on hover.
-    transition-property: color;
-    transition-duration: @link-transition-time;
+    @media (prefers-color-scheme: light)  {
+        // Highlight in red on hover.
+        transition-property: color;
+        transition-duration: @link-transition-time;    
 
-    &:hover {
-        color: @link-highlight-color;
+        &:hover {
+            color: @link-highlight-color;
+        }
     }
+
 
     &:link {
         // Remove tufte dark mode shadow effect.
@@ -198,21 +157,54 @@ table {
     }
 }
 
+// Box-shaped links.
+.boxlink() {
+    display: block;
+    height: 100%;
+
+    transition-property: background-color;
+    transition-duration: @link-transition-time;
+
+    &:hover {
+        background-color: @boxlink-highlight-color;
+        @media (prefers-color-scheme: dark) {
+            background-color: @dark-boxlink-highlight-color;
+        }
+    }
+}
+
+// Directory.
+nav.directory ul {
+    padding-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+    li {
+        width: 100%;
+        padding-left: @para-indent; 
+        a {
+            .boxlink();
+        }
+    }
+}
+
 // Navigation box.
 nav.navbox {
+    .colors();
     .tufte-width();
 
     display: flex;
     flex-wrap: nowrap;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     height: 3.5rem;
 
-    background-color: @background-color;
     border-top: @rule;
+    overflow: hidden;
 
     &>div {
         height: 100%;
+        margin-bottom: 0;
+        padding-bottom: 0;
 
         &:last-child {
             text-align: right;
@@ -236,16 +228,8 @@ nav.navbox {
         }
 
         & a {
-            display: block;
+            .boxlink();
             padding: 0.5em @navbox-padding 1em @navbox-padding;
-            height: 100%;
-
-            transition-property: background-color;
-            transition-duration: @link-transition-time;
-
-            &:hover {
-                background-color: @boxlink-highlight-color;
-            }
         }
     }
 }

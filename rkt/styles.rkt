@@ -71,11 +71,6 @@
                                               (list (page-title pathspec))))))))
 ; an item in a directory
 (define (dirlink child)
-  (print (here-dirname))
-  (println (path->string (build-pollen-path (current-project-root) child)))
-  (println (rel-path (path->string (build-pollen-path (current-project-root) child))))
-  (println (path->complete-path (path->string (build-pollen-path (current-project-root) child)) (here-dirname)))
-  (println "")
   (txexpr 'li empty (list (page empty (path->string (build-pollen-path (current-project-root) child))))))
 
 ; html <a> tag

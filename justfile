@@ -45,27 +45,29 @@ racket_dev_deps := 'fmt'
 default: build-dev
 
 # Build the project.
-build parcel_flags='':
-    checkexec index.ptree \
-        "$(fd -e p -e pm -e ptree -e rkt)" \
-        -- just clean ; raco pollen render pm
-    checkexec {{quote(dist) / 'index.html'}} \
-        "$(fd -e less -e mjs)" pm/index.html \
-        -- {{parcel}} build \
-            --public-url /{{quote(proj)}}/ \
-            --dist-dir {{quote(dist / proj)}} \
-            {{parcel_flags}}
+build parcel_flags='': _build-pollen (_build-parcel parcel_flags)
 # Run a development build of the project.
 build-dev: (build '--no-optimize')
 # Run a production build of the project.
-build-prod: (build '--no-source-maps')
+build-prod: (build '')
+
+# Build pollen sources.
+_build-pollen:
+    just clean
+    raco pollen render pm
+# Build parcel sources.
+_build-parcel parcel_flags='':
+    {{parcel}} build \
+        --no-source-maps \
+        --public-url /{{quote(proj)}}/ \
+        --dist-dir {{quote(dist / proj)}} \
+        {{parcel_flags}}
 
 
 # Watch for changes to rebuild the project.
-watch:
-    exec watchexec \
-        --exts less,mjs,p,pm,ptree \
-        -- just build-dev
+watch: build
+    watchexec --clear --exts p,pm,ptree just _build-pollen & \
+        watchexec --clear --exts html,less,mjs,scss just _build-parcel
 
 # Serve the project.
 serve dir=dist port='8080':
@@ -111,7 +113,7 @@ _clean target=content:
             {{just}} _clean "$i"
         elif [[ -f "$i" ]] && [[
             (-f "$i".p || -f "$i".pp || -f "$i".pm || -f "${i%.*}".poly.pm) ||
-            ("$i" =~ .*\.css && -f "${i%.*}.less")
+            ("$i" =~ .*\.css && (-f "${i%.*}.less" || -f "${i%.*}.scss"))
         ]] ; then
             echo "rm $i"
             rm "$i"
