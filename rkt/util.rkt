@@ -83,16 +83,22 @@
 
 ; Create a path to the given path.
 (define (build-pollen-path . elements)
-  (apply build-path (map (lambda (el) (if (symbol? el) (symbol->string el) el))
-                         elements)))
+  (simple-form-path (apply build-path
+                           (filter identity
+                                   (map (lambda (el) (if (symbol? el) (symbol->string el) el))
+                                        elements)))))
 
+(define (here-dirname) (path-only (select-from-metas 'here-path (current-metas))))
 ; Resolve a relative path for a file in the `pm/` directory.
 (define (rel-path path)
-  (find-relative-path (path-only (select-from-metas 'here-path (current-metas)))
-                      (path->complete-path path (path-only (current-project-root)))))
+  (find-relative-path (here-dirname)
+                      (path->complete-path path)))
 
 ; Get the title of a page, if it is defined. Otherwise, get the file name.
 (define (page-title page)
   (cond
-    [(select 'h1 page) => identity] ; Get title if defined.
-    [else page]))                   ; Pass through name if not defined.
+    [(not page) ""]                                     ; Nothing if invalid.
+    [(path? page) (select 'h1 (resolve-path page))]
+    [(string? page) (select 'h1 (string->symbol page))] ; Get title if defined.
+    [(symbol? page) (select 'h1 page)]                  ; Get title if defined.
+    [else page]))                                       ; Pass through name if not defined.

@@ -77,9 +77,9 @@ serve dir=dist port='8080':
 deploy: install tidy build-prod && clean
     git add .
     git stash push
-    git add --force {{quote(dist)}}
+    git add --force {{quote(dist / proj)}}
     git commit --allow-empty-message --message ''
-    git subtree split --prefix {{quote(dist)}} --branch {{dist-branch}}
+    git subtree split --prefix {{quote(dist / proj)}} --branch {{dist-branch}}
     git push --force origin {{dist-branch}}:{{dist-branch}}
     git reset HEAD~
     git branch -D {{dist-branch}}

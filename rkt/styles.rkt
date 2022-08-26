@@ -1,7 +1,8 @@
 #lang racket
 (require pollen/setup
          pollen/tag
-         txexpr)
+         txexpr
+         "util.rkt")
 (provide (all-defined-out))
 
 ; italic emphasis
@@ -53,6 +54,29 @@
                      (case (current-poly-target)
                        [(html) (html-a attrs elems)]
                        [else `("<" ,elems ">")]))
+
+; cross-reference a page without specifying its title
+(define page
+  (create-tag 'a
+              #:att '((class "pageref"))
+              #:body (lambda (tag attrs elems)
+                             (if (empty? elems)
+                                 (txexpr '@)
+                                 (let ([pathspec (rel-path (string->path (car elems)))])
+                                      (txexpr tag
+                                              (combine-attrs (attrs-set 
+                                                 attrs
+                                                 'href
+                                                 (path->string pathspec)))
+                                              (list (page-title pathspec))))))))
+; an item in a directory
+(define (dirlink child)
+  (print (here-dirname))
+  (println (path->string (build-pollen-path (current-project-root) child)))
+  (println (rel-path (path->string (build-pollen-path (current-project-root) child))))
+  (println (path->complete-path (path->string (build-pollen-path (current-project-root) child)) (here-dirname)))
+  (println "")
+  (txexpr 'li empty (list (page empty (path->string (build-pollen-path (current-project-root) child))))))
 
 ; html <a> tag
 (define (html-a attrs url text)
