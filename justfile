@@ -67,7 +67,7 @@ _build-parcel parcel_flags='':
 # Watch for changes to rebuild the project.
 watch: build
     watchexec --clear --exts p,pm,ptree just _build-pollen & \
-        watchexec --clear --exts html,less,mjs,scss just _build-parcel
+        watchexec --clear --exts html,less,mjs,p,pm,ptree just _build-parcel
 
 # Serve the project.
 serve dir=dist port='8080':
@@ -113,7 +113,7 @@ _clean target=content:
             {{just}} _clean "$i"
         elif [[ -f "$i" ]] && [[
             (-f "$i".p || -f "$i".pp || -f "$i".pm || -f "${i%.*}".poly.pm) ||
-            ("$i" =~ .*\.css && (-f "${i%.*}.less" || -f "${i%.*}.scss"))
+            ("$i" =~ .*\.css && (-f "${i%.*}.less"))
         ]] ; then
             echo "rm $i"
             rm "$i"

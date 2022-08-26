@@ -1,0 +1,10 @@
+
+// Maximum width to consider a device a mobile device.
+@mobile-device-width: 920px;
+// Width at which to switch viewport style.
+@viewport-switch-width: 920px;
+
+@mobile-device: ~'only screen and (max-device-width: @{mobile-device-width})';
+@single-column: ~'(max-width: @{viewport-switch-width})';
+
+@tufte-single-column: @single-column, @mobile-device;

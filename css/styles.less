@@ -1,6 +1,7 @@
+@import 'tufte.less';
+
 @import 'colors.less';
 @import 'fonts.less';
-@import 'tufte-adjustments.less';
 @import 'variables.less';
 
 @import 'ipa.less';
@@ -31,10 +32,14 @@ body {
     hyphens: auto;
     hanging-punctuation: first force-end last;
 
+    main {
+        min-height: 100vh;
+    }
+
     .colors();
 }
 
-@para-indent: @body-size * 1.5;
+@para-indent: @text-size * 1.5;
 
 p {
     text-indent: 0;
@@ -197,6 +202,8 @@ nav.navbox {
     position: sticky;
     bottom: 0;
     height: 3.5rem;
+    
+    font-size: 1.2rem;
 
     border-top: @rule;
     overflow: hidden;

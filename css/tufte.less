@@ -1,3 +1,7 @@
+@import (less) '/node_modules/tufte-css/tufte.css';
+
+@import 'device.less';
+
 
 // Mixin for disabling the tufte underlining.
 .no-tufte-underline() {
@@ -5,14 +9,11 @@
     text-shadow: unset;
 }
 
-// Width at which to switch viewport style.
-@viewport-switch-width: 920px;
-
 .tufte-width() {
-    width: 75%;
+    width: 88.125%;
     max-width: 1400px;
 
-    @media (max-width: @viewport-switch-width) {
+    @media @tufte-single-column {
         & {
             width: 100%;
             padding-right: 0;
@@ -26,12 +27,13 @@ h1,
 p.subtitle,
 h2,
 h3 {
-    max-width: 88.125%;
+    .tufte-width();
+    // max-width: 88.125%;
 }
 
 
 // Adjustment for smaller viewports.
-@media (max-width: @viewport-switch-width) {
+@media @tufte-single-column {
     body {
         width: 84%;
         padding-left: 8%;
