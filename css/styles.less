@@ -184,10 +184,10 @@ nav.directory ul {
     padding-right: 0;
     list-style-type: none;
     li {
-        width: 100%;
-        padding-left: @para-indent; 
+        width: 100%; 
         a {
             .boxlink();
+            text-align: center;
         }
     }
 }
@@ -201,15 +201,17 @@ nav.navbox {
     flex-wrap: nowrap;
     position: sticky;
     bottom: 0;
-    height: 3.5rem;
-    
+    min-height: 3.5rem;
+    height: max-content;
+
     font-size: 1.2rem;
 
     border-top: @rule;
     overflow: hidden;
 
     &>div {
-        height: 100%;
+        min-height: 100%;
+        max-height: max-content;
         margin-bottom: 0;
         padding-bottom: 0;
 
@@ -237,6 +239,14 @@ nav.navbox {
         & a {
             .boxlink();
             padding: 0.5em @navbox-padding 1em @navbox-padding;
+            
+            &.prev-page::before {
+                content: '↢';
+            }
+
+            &.next-page::after {
+                content: '↣';
+            }
         }
     }
 }

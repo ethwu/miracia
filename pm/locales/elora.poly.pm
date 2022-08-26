@@ -3,7 +3,7 @@
 ◊title{Elora}
 
 ◊section["Overview"]{
-    Elora ◊ipa['g 'w]{ɛˈlorə} is the unsung powerhouse of Miracia's Auremic Revolution. The country is situated beneath the main continent, Avrasol, spanning a vast archipelago of shattered isles. Elora only sees sunlight briefly at sunrise and sunset, as Avrasol blocks the sun during the day, making the country experience a seemingly endless night, with only brief respite. That may be just as well, however, as the monsters that thrive in the toxic depths of the world are emboldened by the sunlight, and rise to wreak mayhem at those hours.
+    Elora ◊ipa['g 'w]{ɛˈlorə} is the secret powerhouse of Miracia's Auremic Revolution. The country is situated beneath the main continent, Avrasol, spanning a vast archipelago of shattered isles. Elora only sees sunlight briefly at sunrise and sunset, as Avrasol blocks the sun during the day, making the country experience a seemingly endless night, with only brief respite. That may be just as well, however, as the monsters that thrive in the toxic depths of the world are emboldened by the sunlight, and rise to wreak mayhem at those hours.
 
     Without the sun, Elora cannot sustain plant life. Instead, the isles are populated by jungles of behemoth fungi. Many have bioluminescence, and glow during the hours that the sun is invisible, attracting insects and other animals. Fruits, vegetable, and other plant-based foods are scarce, and must be shipped via airship.
 
