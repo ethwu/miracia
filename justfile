@@ -54,7 +54,7 @@ build-prod: (_build-pollen-rkt '')
 _build-pollen-rkt parcel_flags='': clean && (_build-pollen parcel_flags)
 # Build pollen sources.
 _build-pollen parcel_flags='': && (_build-parcel parcel_flags)
-    raco pollen render pm
+    raco pollen render --parallel pm
 # Build parcel sources.
 _build-parcel parcel_flags='':
     {{parcel}} build \

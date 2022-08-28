@@ -1,10 +1,14 @@
 #lang racket
 (require racket/path
          pollen/core
+         pollen/render
          pollen/setup
          pollen/tag
          txexpr)
 (provide (all-defined-out))
+
+(define (get-here) (select-from-metas 'here-path (current-metas)))
+(define (here-dirname) (path-only (get-here)))
 
 ; an empty `txexpr`
 (define empty-tag (txexpr '@))
@@ -56,6 +60,8 @@
 ; include the contents of another file in this one; the parent file will not count changes in the child file as marking it for recompilation
 (define (include file)
   `(@ ,@(cdr (get-doc file))))
+; render an unrendered file and include it. path is resolved relative to the project root
+(define (render-include file) (list '@ (render (get-here) (path->complete-path file (current-project-root)))))
 
 ; convert a pair to a list
 (define (pair->list p)
@@ -88,7 +94,6 @@
                                    (map (lambda (el) (if (symbol? el) (symbol->string el) el))
                                         elements)))))
 
-(define (here-dirname) (path-only (select-from-metas 'here-path (current-metas))))
 ; Resolve a relative path for a file in the `pm/` directory.
 (define (rel-path path)
   (find-relative-path (here-dirname)
@@ -96,9 +101,8 @@
 
 ; Get the title of a page, if it is defined. Otherwise, get the file name.
 (define (page-title page)
-  (cond
-    [(not page) ""]                                     ; Nothing if invalid.
-    [(path? page) (select 'h1 (resolve-path page))]
-    [(string? page) (select 'h1 (string->symbol page))] ; Get title if defined.
-    [(symbol? page) (select 'h1 page)]                  ; Get title if defined.
-    [else page]))                                       ; Pass through name if not defined.
+  (or (cond [(path? page)   (select 'h1 (resolve-path page))]
+            [(string? page) (select 'h1 (string->symbol page))]
+            [(symbol? page) (select 'h1 page)]
+            [else page])
+      ""))
