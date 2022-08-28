@@ -87,6 +87,7 @@
 @mono-family: @source-code, @mono-fallback;
 
 @title-family: 'Playfair Display', @bembo, @serif-fallback;
+@subtitle-family: @bembo, @serif-fallback;
 @heading-family: 'Playfair Display', @bembo, @serif-fallback;
 
 // Default text size.
@@ -118,9 +119,18 @@ html {
     font-variant-numeric: lining-nums;
 }
 
-h1, h2, h3 {
+h1 {
+    font-family: @title-family;
+}
+p.subtitle {
+    font-family: @subtitle-family;
+}
+
+h2, h3 {
+    font-family: @heading-family;
     font-style: normal;
 }
+
 
 .sans,
 div.table-wrapper {

@@ -6,7 +6,8 @@
 
 (module setup racket/base
   (provide (all-defined-out))
-  (define poly-targets '(html txt)))
+  (define poly-targets '(html txt))
+  (define command-char #\@))
 
 ; Create a pair of brackets that can be displayed using the `.ghost` CSS class
 ; instead.

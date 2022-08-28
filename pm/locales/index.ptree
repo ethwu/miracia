@@ -1,6 +1,6 @@
 #lang pollen
 
-◊locales/index.html{
+@locales/index.html{
     locales/elora.html
     locales/irina.html
 }

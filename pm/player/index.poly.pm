@@ -1,3 +1,3 @@
 #lang pollen
 
-◊title{Information for Players}
+@title{Information for Players}

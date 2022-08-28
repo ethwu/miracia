@@ -1,12 +1,11 @@
 #lang pollen
 
-◊(require (prefix-in dm: "dm/index.ptree"))
-◊(require (prefix-in locales: "locales/index.ptree"))
-◊(require (prefix-in player: "player/index.ptree"))
+@(require (prefix-in dm: "dm/index.ptree"))
+@(require (prefix-in locales: "locales/index.ptree"))
+@(require (prefix-in player: "player/index.ptree"))
 
-◊index.html{
-    ◊locales:doc
-    ◊player:doc
-    ◊dm:doc
+@index.html{
+    @locales:doc
+    @player:doc
+    @dm:doc
 }
-

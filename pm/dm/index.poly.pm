@@ -1,3 +1,3 @@
 #lang pollen
 
-◊title{Information for Dungeon Masters}
+^title{Information for Dungeon Masters}

@@ -63,6 +63,9 @@ _build-parcel parcel_flags='':
         --dist-dir {{quote(dist / proj)}} \
         {{parcel_flags}}
 
+# Install packages and create initial build.
+start: install _build-pollen-rkt
+
 
 # Watch for changes to rebuild the project.
 watch:
@@ -127,6 +130,7 @@ install: (_cmd_exists 'raco') (_cmd_exists 'fmt')
     {{raco_install}} {{racket_deps}}
     # Racket: Development dependencies.
     {{raco_install}} {{racket_dev_deps}}
+    raco setup --pause
     pnpm install
 
 # Format sources.

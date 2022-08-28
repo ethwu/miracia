@@ -1,7 +1,7 @@
 #lang pollen
 
-◊title{Locales}
+@title{Locales}
 
-◊section["Overview"]{
+@section["Overview"]{
     Miracia is the dark frontier of Hunyil.
 }
