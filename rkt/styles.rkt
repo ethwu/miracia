@@ -80,3 +80,14 @@
 ; use lining figures
 (define (lining-figures . elems)
   (txexpr 'span '((class "lining-figures")) elems))
+
+; import script
+(define script
+  (create-tag 'script
+              #:sym (lambda (s)
+                      (match s
+                        [(or 'async) '((async "true"))]
+                        [else '()]))
+              #:att '((type "module"))
+              #:body (lambda (tag attrs elems)
+                             (attr-set (txexpr tag (combine-attrs attrs)) "src" (car elems)))))

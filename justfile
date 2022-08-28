@@ -59,8 +59,6 @@ _build-pollen parcel_flags='': && (_build-parcel parcel_flags)
 _build-parcel parcel_flags='':
     {{parcel}} build \
         --no-source-maps \
-        --public-url /{{quote(proj)}}/ \
-        --dist-dir {{quote(dist / proj)}} \
         {{parcel_flags}}
 
 # Install packages and create initial build.
@@ -69,9 +67,9 @@ start: install _build-pollen-rkt
 
 # Watch for changes to rebuild the project.
 watch:
-    watchexec --clear --exts rkt just _build-pollen-rkt & \
-        watchexec --clear --exts p,pm,ptree just _build-pollen & \
-        watchexec --clear --exts html,less,mjs,p,pm,ptree just _build-parcel
+    watchexec --clear --exts ptree,rkt just _build-pollen-rkt & \
+        watchexec --clear --exts p,pp,pm just _build-pollen & \
+        watchexec --clear --exts html,less,mjs,p,pm,ptree,ts just _build-parcel
 
 # Serve the project.
 serve dir=dist port='8080':

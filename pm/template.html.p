@@ -1,17 +1,17 @@
  <!DOCTYPE html>
 <html>
     <head>
-        @(render-include "../templates/head.pp")
+        @(render-include "../templates/head.html.p")
     </head>
     <body>
 
         <main>
             @(->html @doc)
 
-            @(render-include "../templates/directory.pp")
+            @(render-include "../templates/directory.html.p")
         </main>
 
-        @(render-include "../templates/navbox.pp")
+        @(render-include "../templates/navbox.html.p")
 
         <script async type="module" src="/js/index.mjs"></script>
     </body>

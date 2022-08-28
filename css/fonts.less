@@ -1,6 +1,9 @@
 @import '/node_modules/@fontsource/playfair-display';
+@import (less) '/node_modules/@fontsource/playfair-display/400-italic.css';
+@import (less) '/node_modules/@fontsource/playfair-display/700-italic.css';
 
 @import 'device.less';
+@import 'tufte.less';
 
 .font-face-support-ipa() {
     @unicode-range-latin: U+0000-00FF,
@@ -84,7 +87,7 @@
 
 @sans-family: @sans-fallback;
 @serif-family: 'Gentium Book Plus', @bembo, @serif-fallback;
-@mono-family: @source-code, @mono-fallback;
+@mono-family: @mono-fallback;
 
 @title-family: 'Playfair Display', @bembo, @serif-fallback;
 @subtitle-family: @bembo, @serif-fallback;
@@ -94,6 +97,11 @@
 @text-size: 13.5pt;
 // Text size for mobile devices.
 @mobile-text-size: 24pt;
+@para-indent: @text-size * 1.5;
+
+@h3-size: @tufte-h3-size;
+@h4-size: 1.5rem;
+@p-size: 1.4rem;
 
 .default-font-family() {
     font-family: @serif-family;

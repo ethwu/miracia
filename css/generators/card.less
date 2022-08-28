@@ -1,0 +1,85 @@
+@import '../colors.less';
+@import '../fonts.less';
+@import '../tufte.less';
+@import '../variables.less';
+
+.cards {
+    .tufte-width();
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    grid-gap: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 1rem;
+
+    border: @midrule;
+    border-right: @heavyrule;
+    border-bottom: @heavyrule;
+    // box-shadow: 2px 2px 1px @foreground-color;
+
+    transition: all 0.1s ease 0s;
+
+    &:hover {
+        transform: translateY(-0.25rem);
+    }
+
+    header {
+        flex: 0;
+
+        h1 {
+            margin: 0;
+            font-size: @h3-size;
+        }
+
+        p.subtitle {
+            font-size: @p-size;
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        flex: 1;
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 1.4rem;
+            font-size: @h4-size;
+        }
+
+        section {
+            flex: 1;
+        }
+
+        dl {
+            width: 90%;
+            font-size: @text-size;
+            dt {
+                float: inline-start;
+                width: max-content;
+                margin: 0;
+                padding: 0;
+            }
+
+            dd {
+                margin-left: @para-indent;
+            }
+        }
+    }
+
+    data:hover::after {
+        content: attr(value);
+    }
+
+    footer {
+        flex-grow: 0;
+        font-family: @mono-family;
+        font-size: small;
+    }
+}

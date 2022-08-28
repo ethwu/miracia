@@ -1,3 +1,6 @@
 #lang pollen
 
-dm/index.html
+@dm/index.html{
+    dm/encounter-builder.html
+    dm/generators.html
+}

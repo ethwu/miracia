@@ -46,7 +46,7 @@
      . ->* .
      procedure?)
  (define-tag-function
-  (tag-function attrs elems)
+  (tag-function attrs elems)  ; may throw contract exception if no elements given to tag
   (let-values ([(symbs elems) (splitf-at elems symbol?)])
     (body tag
           (append (map-values map-symbols symbs) (attrs-map-values attrs map-attributes) additional)
