@@ -2,5 +2,5 @@
 
 @player/index.html{
     player/spells.html
-    player/srd.html
+    @; player/srd.html
 }

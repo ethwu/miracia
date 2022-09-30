@@ -78,7 +78,7 @@ serve dir=dist port='8080':
 
 
 # Deploy the project.
-deploy: install tidy build-prod && clean
+deploy: tidy build-prod && clean
     git add .
     git stash push
     git add --force {{quote(dist / proj)}}
