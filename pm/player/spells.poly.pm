@@ -62,7 +62,7 @@ Pact Caster	Warlock	24
     }
 
     @subsection["Restoring Spell Slots without Ahjari"]{
-        It is possible to restore spell slots without an ahjari canister by focusing one's internal energy. During a Short or Long Rest where you would normally regain spell slots, you can restore a number of spell slots corresponding to a particular grade of ahjari at the cost of one level of Exhaustion@sidenote{While Exhausted, you take a penalty to d20 Tests and save DCs that you inflict equal to your current Exhaustion level. Finishing a Long Rest removes one level of Exhaustion. You die if your Exhaustion Level reaches 10. You are no longer Exhausted once your Exhaustion level falls to 0.} per tier.
+        It is possible to restore spell slots without an ahjari canister by focusing one's internal energy. During a Short or Long Rest where you would normally regain spell slots, you can restore a number of spell slots corresponding to a particular grade of ahjari at the cost of one level of Exhaustion@sidenote{While Exhausted, you take a penalty equal to your current Exhaustion level to d20 Tests and save DCs that you inflict. Finishing a Long Rest removes one level of Exhaustion. You die if your Exhaustion level reaches 10, but are no longer Exhausted once your Exhaustion level falls to 0.} per tier.
 
 
         @figure{
