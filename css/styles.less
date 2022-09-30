@@ -41,6 +41,7 @@ p {
 }
 
 .sidenote,
+.marginnote,
 label {
     text-indent: 0;
 }
@@ -54,28 +55,31 @@ li {
     text-align: justify;
 }
 
-figure.fullwidth {
+figure {
     img {
         width: 100%;
     }
+
+    table {
+        width: 100%;
+    }
 }
+
 
 @media @tufte-single-column {
     .margin-toggle:not(.sidenote-number)[for|='margin-figure'] {
         display: none;
     }
 
-    figure {
-        .marginnote {
-            display: block;
-            float: none;
-            left: 1rem;
-            clear: both;
-            width: 95%;
-            margin: 1rem 2.5%;
-            vertical-align: baseline;
-            position: relative;
-        }
+    figure .marginnote {
+        display: block;
+        float: none;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        vertical-align: baseline;
+        position: relative;
     }
 }
 
