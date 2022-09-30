@@ -91,6 +91,7 @@ deploy: install tidy build-prod && clean
 
 # Clean up build artifacts.
 clean:
+    fd -e zo -x rm {}
     raco pollen reset
     fd '' -Ie html pm/ --exec rm {}
     rm -rf .parcel-cache
