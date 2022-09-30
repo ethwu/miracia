@@ -1,7 +1,8 @@
 #lang racket
 (require pollen/setup
          pollen/tag
-         txexpr)
+         txexpr
+         "util.rkt")
 (provide (all-defined-out))
 (provide title
          subtitle
@@ -42,3 +43,12 @@
 (define section (make-section heading))
 ; subsections
 (define subsection (make-section subheading))
+
+; Details block
+(define details
+  (create-tag 'details
+    #:body (lambda (tag attrs elems)
+                   (txexpr tag
+                           (combine-attrs attrs)
+                           `(,(txexpr 'summary empty (list (car elems))) "\n"
+                             ,@(cdr elems))))))

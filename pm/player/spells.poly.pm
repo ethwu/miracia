@@ -5,6 +5,8 @@
 @section["Overview"]{
     Magic does not flow freely in Miracia, as it does in other worlds. Instead, all magic relies on the magical essence, @emph{aure}@sidenote{@emph{Aure}, literally "breath", is typically found as a gas, particularly in pockets embedded within Miracia's floating islands.}. While aure occurs naturally as a gas, it is easiest to work with in its liquid form, @emph{ahjari}@sidenote{"water of life"}, which is in turn either pumped through pipelines to power civic infrastructure or packaged in canisters for portable use. Portable artifices must be powered using these canisters, and nearly all casters@sidenote{The priests of the Order of Hunyil do not carry canisters.} will carry a supply in order to fuel their magic.
 
+    @margin-note{On a side note, most casters in Miracia tend to be fairly young, and die early deaths. It is exceedingly rare to see an elderly caster, and they will usually be in a position of power.}
+
     The supply of readily available aure dwindles as the Auremic Revolution continues, driving the price of the invaluable resource upwards. While mining operations on the surface of the continent Avrasol@sidenote{"great continent"} provided the initial supply of aure, it was soon discovered that aure mining destabilized islands by removing the buoyant gas holding them afloat. This led to the now-widespread practice of capturing smaller islands and establishing mining towns on them, extracting aure until the island collapses into the Abyss.@sidenote{Other means of aure collection exist, including the use of @emph{auremic condensers}, which extract naturally occuring aure from the air. Auremic condensers are, however, not capable of yielding enough aure to feed the world's technological appetite.}
 }
 
@@ -35,6 +37,22 @@
             Pure	All Available at Level 20	133
         }
         @caption{Maximum Spell Slots or Spell Points Recovered}
+    }
+
+    @subsection["Restoring Spell Slots without Ahjari"]{
+        It is possible to restore spell slots without an ahjari canister by focusing one's internal energy. During a Short or Long Rest where you would normally regain spell slots, you can restore a number of spell slots corresponding to a particular grade of ahjari at the cost of one level of Exhaustion@sidenote{While Exhausted, you take a penalty to d20 Tests and save DCs that you inflict equal to your current Exhaustion level. Finishing a Long Rest removes one level of Exhaustion. You die if your Exhaustion Level reaches 10. You are no longer Exhausted once your Exhaustion level falls to 0.} per tier.
+
+
+        @figure{
+            @tsv{
+                Exhaustion Incurred	Spell Slots	Spell Points
+                1	All Available at Level 4	17
+                2	All Available at Level 10	64
+                3	All Available at Level 17	107
+                4	All Available at Level 20	133
+            }
+            @caption{Maximum Spell Slots or Spell Points Recovered Without Ahjari}
+        }
     }
 
     @subsection["Sorcerers"]{

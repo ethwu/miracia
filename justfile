@@ -66,7 +66,7 @@ start: install _build-pollen-rkt
 
 
 # Watch for changes to rebuild the project.
-watch:
+watch: build-dev
     watchexec --clear --exts ptree,rkt just _build-pollen-rkt & \
         watchexec --clear --exts p,pp,pm just _build-pollen & \
         watchexec --clear --exts html,less,mjs,p,pm,ptree,ts just _build-parcel
