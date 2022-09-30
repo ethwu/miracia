@@ -21,7 +21,7 @@
     "@parcel/core": "^2.7.0",
     "@parcel/transformer-less": "^2.7.0",
     "@parcel/transformer-raw": "^2.7.0",
-    "@types/d3": "^7.4.0",
+    "@types/d3-dsv": "^3.0.0",
     "http-server": "^14.0.0",
     "parcel": "^2.7.0",
     "prettier": "^2.5.1"
@@ -31,6 +31,8 @@
     "@fontsource/playfair-display": "^4.5.11",
     "d3-dsv": "^3.0.1",
     "fantasy-content-generator": "^4.9.1",
+    "fivee": "^0.3.2",
+    "simple-datatables": "^3.2.2",
     "tufte-css": "^1.8.0"
   }
 }

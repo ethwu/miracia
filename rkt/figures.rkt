@@ -1,6 +1,7 @@
 #lang racket
 (require pollen/setup
          pollen/tag
+         txexpr
          "constants.rkt"
          "util.rkt")
 (provide (all-defined-out))
@@ -37,3 +38,17 @@
 
 ; table element
 (define te (create-tag 'td #:kws map-table-spans))
+
+; Render a tsv.
+(define tsv
+  (create-tag 'table
+    #:body (λ (tag attrs elems)
+              (let* ([elems (string-split (string-append* elems) "\n")]
+                     [headers (string-split (car elems) "\t")]
+                     [data-rows (cdr elems)])
+                    (txexpr tag (combine-attrs attrs)
+                           (list `(thead (tr ,@(map (λ (header) `(th ,header)) headers)))
+                                 `(tbody ,@(map (λ (data-row)
+                                                    `(tr ,@(map (λ (data) `(td ,data))
+                                                            (string-split data-row "\t"))))
+                                                  data-rows))))))))

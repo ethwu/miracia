@@ -39,7 +39,7 @@
 (define margin-note (make-note 'marginnote margin-note-symbol))
 
 ; margin figures
-(define margin-figure (make-note 'marginnote margin-note-symbol 'span 'figure "margin-figure"))
+(define margin-figure (make-note 'marginnote margin-figure-symbol 'span 'figure "margin-figure"))
 ; figure captions in the margin
 (define margin-caption (make-note 'marginnote margin-note-symbol 'figcaption '@ "margin-caption"))
 

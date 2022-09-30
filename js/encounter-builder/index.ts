@@ -1,4 +1,4 @@
-import { DSVRowArray, tsvParse } from '/node_modules/d3-dsv';
+import { DSVRowArray, tsvParse } from 'd3-dsv';
 
 // import thresholds_data from '/static/xp_thresholds_by_character_level.tsv';
 

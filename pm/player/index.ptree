@@ -1,3 +1,6 @@
 #lang pollen
 
-player/index.html
+@player/index.html{
+    player/spells.html
+    player/srd.html
+}

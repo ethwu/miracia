@@ -40,7 +40,7 @@
          [elems (decode-elements elems #:txexpr-proc fix-captions #:exclude-tags (excluded))]
          [elems (decode-elements elems
                                  #:txexpr-elements-proc decode-paragraphs
-                                 #:exclude-tags (excluded 'code 'figure 'table 'link 'script 'div))]
+                                 #:exclude-tags (excluded 'code 'figure 'table 'link 'div))]
          [elems (decode-elements
                  elems
                  #:block-txexpr-proc hyphenate-block

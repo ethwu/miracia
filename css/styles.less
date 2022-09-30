@@ -6,14 +6,12 @@
 
 @import 'ipa.less';
 
-
 body,
 .numeral,
 .sidenote-number:after,
 .sidenote:before {
     .default-font-family();
 }
-
 
 body {
     margin: 0;
@@ -32,12 +30,12 @@ body {
 
 p {
     text-indent: 0;
-    margin-top: 0; // tufte: 1.4rem
-    margin-bottom: 0; // tufte: 1.4rem
+    margin-top: 0 !important; // tufte: 1.4rem
+    margin-bottom: 0 !important; // tufte: 1.4rem
     text-align: justify;
 
     // First-line indents for all paragraphs except the first.
-    &+& {
+    & ~ & {
         text-indent: @para-indent;
     }
 }
@@ -56,9 +54,33 @@ li {
     text-align: justify;
 }
 
+@media @tufte-single-column {
+    .margin-toggle:not(.sidenote-number)[for|='margin-figure'] {
+        display: none;
+    }
+
+    figure {
+        .marginnote {
+            display: block;
+            float: none;
+            left: 1rem;
+            clear: both;
+            width: 95%;
+            margin: 1rem 2.5%;
+            vertical-align: baseline;
+            position: relative;
+        }
+    }
+}
+
 // Equal spacing above and below figures.
 figure {
-    margin: 3em 0 3em 0;
+    margin: 0 !important;
+}
+// Container for margin figures.
+margin-figure {
+    display: block;
+    margin: 0;
 }
 
 // Align figure captions in the margin.
@@ -68,7 +90,7 @@ figcaption.marginnote {
 }
 
 // Do not indent images in the margins.
-span.marginnote>img {
+span.marginnote > img {
     display: block;
 }
 
@@ -93,13 +115,13 @@ a {
         }
     }
 
-
     &:link {
         // Remove tufte dark mode shadow effect.
         text-shadow: none;
 
         // Remove tufte underlining for internal links.
-        &:not([href*='//']) {
+        &:not([href*='//'])
+        {
             .no-tufte-underline();
         }
     }
@@ -129,8 +151,9 @@ table {
     text-align: left;
     border-spacing: 0 2.16pt;
 
-    thead tr:first-child>* {
+    thead tr:first-child > * {
         border-top: @toprule;
+        border-bottom: @midrule;
     }
 
     border-bottom: @bottomrule;
@@ -206,7 +229,7 @@ nav.navbox {
     border-top: @rule;
     overflow: hidden;
 
-    &>div {
+    & > div {
         min-height: 100%;
         max-height: max-content;
         margin-bottom: 0;
@@ -223,7 +246,9 @@ nav.navbox {
         }
 
         &:nth-child(n + 2):nth-last-child(n + 2) {
-            flex: 1;
+            flex: 0;
+            flex-grow: 1;
+            text-align: center;
             border-left: @lightrule;
             border-right: @lightrule;
 

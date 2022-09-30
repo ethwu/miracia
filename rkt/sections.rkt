@@ -33,7 +33,7 @@
 (define subheading (make-heading 'h3 "--"))
 
 ; make a section tag
-; ^section["Heading"]{Lorum ipsum dolor...}
+; @section["Heading"]{Lorum ipsum dolor...}
 (define (make-section heading)
   (make-keyword-procedure (λ (attr-keys attr-vals head . elems)
                             `(section ,(map cons attr-keys attr-vals) ,(heading head) ,@elems))))
