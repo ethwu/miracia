@@ -16,8 +16,8 @@ Non-Caster	Barbarian	80
  	Fighter	
  	Monk	
  	Rogue	
-Third-Caster	Rogue (Arcane Trickster)	64
- 	Fighter (Eldritch Knight)	
+Third-Caster	Fighter (Eldritch Knight)	64
+ 	Rogue (Arcane Trickster)	
 Half-Caster	Artificer	48
  	Paladin	
  	Ranger	
@@ -28,12 +28,12 @@ Full Caster	Bard	32
  	Wizard	
 Pact Caster	Warlock	24
         }
-        @caption{Average Human Life Expectancy for Magic Users}
+        @caption{Average Life Expectancy for Human Magic Users}
     }
 }
 
 @section["Recovering Spell Slots"]{
-    No creature can naturally recover spell slots by taking a Long Rest. Instead, spell slots are regained by harmonizing with an ahjari canister@sidenote{An @emph{ahjari canister} has AC 15 and 10 hit points, and weighs 0.25 lb. It contains one quart of Ahjari. If it falls to zero hit points, it detonates, dealing radiant damage to all creatures within a 15 ft radius. according to the Ahjari Canister Damage table below. Any creature within the blast radius may choose to dodge the explosion by making a Dexterity saving throw. The spell points that would have been restored by the canister when used normally are instead spread evenly between all creatures who take damage from the blast but are not killed or incapacitated, rounded down. Depleted canisters do not explode and will not restore spell points.}.
+    No creature can naturally recover spell slots by taking a Long Rest. Instead, spell slots are regained by harmonizing with an ahjari canister@sidenote{An @emph{ahjari canister} has AC 15 and 10 hit points, and weighs 0.25 lb. It contains one quart of Ahjari. If it falls to zero hit points, it detonates, dealing radiant damage to all creatures within a 15 ft radius according to the Ahjari Canister Damage table below. Any creature within the blast radius may choose to dodge the explosion by making a Dexterity saving throw. Each creature who takes damage from the blast and is not killed or incapacitated regains spell points equal to the maximum spell points granted by the detonated canister, divided by the number of creatures hit by the blast. If a creature uses spell slots, the regained spell points are converted into spell slots starting with the creature's lowest level slots, restoring each level of spell slots until there are not enough spell points left to restore a slot (or there are no more slots left to restore), at which point the excess spell points are lost. Depleted canisters do not explode and will not restore spell points.}.
 
     @margin-figure{
         @tsv{
@@ -83,6 +83,8 @@ Pact Caster	Warlock	24
 
     @subsection["Warlocks"]{
         Warlocks will not recover spell slots on Shorts Rests. However, Warlocks only require one use of the Harmonize action in order to harmonize with an ahjari canister. After a single use of the Harmonize action, if the Warlock takes no damage before the start of their next turn, they regain all of their spell slots at the beginning of their next turn.
+
+        The Warlock's 20th level class feature Eldritch Master can be used to restore expended spell slots as written.
     }
 
     @subsection["Restrictions on Ahjari"]{
