@@ -1,0 +1,1 @@
+document.addEventListener("copy",(t=>{const e=document.getSelection();t.clipboardData.setData("text/plain",e.toString().replace(/\u00ad/g,"")),t.preventDefault()}));
